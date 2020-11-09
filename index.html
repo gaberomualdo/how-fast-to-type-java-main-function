@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>How Fast Can You Type 'public static void main(String[] args){}'</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="skeleton.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="https://xtrp.io/favicon.ico" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+          sans-serif;
+      }
+      body {
+        background-image: linear-gradient(120deg, #283c86, #45a247);
+        height: 100vh;
+        width: 100%;
+      }
+      .cont {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        padding: 6rem 7rem;
+        background: #fff;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        max-width: 95%;
+        box-sizing: border-box;
+      }
+      .cont h1,
+      .cont h2 {
+        font-size: 3.5rem;
+        font-weight: 500;
+        margin-bottom: 3.5rem;
+        text-align: center;
+        line-height: 1.5;
+      }
+      @media only screen and (max-width: 1100px) {
+        .cont {
+          zoom: 90%;
+        }
+      }
+      @media only screen and (max-width: 900px) {
+        .cont {
+          zoom: 80%;
+        }
+      }
+      @media only screen and (max-width: 700px) {
+        .cont {
+          padding: 2rem 3rem;
+          zoom: 60%;
+          width: 95%;
+        }
+        code {
+          zoom: 75%;
+        }
+      }
+      .cont h2 {
+        font-size: 3rem;
+        margin-top: 3.5rem;
+        margin-bottom: 0;
+        padding: 1.5rem 0;
+        border-radius: 4px;
+        background-color: #ef5734;
+        background-image: linear-gradient(315deg, #ffcc2f 0%, #ef5734 74%);
+        color: #fff;
+      }
+      code {
+        background: transparent;
+        margin: 0 1rem;
+      }
+      code,
+      input {
+        font-family: 'Roboto Mono', monospace;
+        font-weight: 400;
+        font-size: 80%;
+      }
+      strong {
+        font-family: 'Roboto Mono', monospace;
+      }
+      input {
+        font-size: 2rem;
+        padding: 1rem 1.5rem;
+        height: 5rem;
+        width: 100%;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cont">
+      <h1>How Fast Can You Type<br /><code>public static void main(String[] args){}</code>?</h1>
+      <input type="text" oninput="go(this)" name="code" id="code" placeholder="Type it as fast as you can..." spellcheck="false" />
+      <h2 style="display: none">🎉 Great job! You typed it in <strong></strong>s 🥳</h2>
+    </div>
+
+    <script>
+      let time = undefined;
+      const go = (i) => {
+        if (i.value === '' || !time) {
+          time = new Date();
+        }
+        if (i.value === 'public static void main(String[] args){}') {
+          cur = new Date();
+          document.querySelector('h2 strong').innerHTML = (cur.getTime() - time.getTime()) / 1000;
+          document.querySelector('h2').style.display = 'block';
+          time = undefined;
+        }
+      };
+    </script>
+  </body>
+</html>
